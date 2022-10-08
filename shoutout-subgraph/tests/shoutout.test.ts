@@ -5,9 +5,8 @@ import {
   clearStore,
   beforeAll,
   afterAll
-} from "matchstick-as/assembly/index"
+} from "matchstick-as"
 import { Address } from "@graphprotocol/graph-ts"
-import { ExampleEntity } from "../generated/schema"
 import { Shout } from "../generated/Shoutout/Shoutout"
 import { handleShout } from "../src/shoutout"
 import { createShoutEvent } from "./shoutout-utils"
