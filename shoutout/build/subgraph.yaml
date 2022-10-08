@@ -6,6 +6,7 @@ dataSources:
     name: Shoutout
     network: mainnet
     source:
+      startBlock: 15701726
       address: "0x41a0b097078E734D4753CdBaE672295B65017f45"
       abi: Shoutout
     mapping:
