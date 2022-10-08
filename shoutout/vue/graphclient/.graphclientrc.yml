@@ -1,0 +1,9 @@
+# .graphclientrc.yml
+sources:
+  - name: shoutout
+    handler:
+      graphql:
+        endpoint: https://api.studio.thegraph.com/query/36106/shoutout/v0.0.6
+
+documents:
+  - ./allshouts-query.graphql

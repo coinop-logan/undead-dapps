@@ -1,0 +1,8 @@
+query AllShouts
+  {
+    shoutEntities(first: 5) {
+      id
+      author
+      message
+    }
+  }
