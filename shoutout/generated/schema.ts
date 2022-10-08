@@ -6,7 +6,6 @@ import {
   Value,
   ValueKind,
   store,
-  Address,
   Bytes,
   BigInt,
   BigDecimal
@@ -20,22 +19,23 @@ export class ExampleEntity extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id !== null, "Cannot save ExampleEntity entity without an ID");
-    assert(
-      id.kind == ValueKind.STRING,
-      "Cannot save ExampleEntity entity with non-string ID. " +
-        'Considering using .toHex() to convert the "id" to a string.'
-    );
-    store.set("ExampleEntity", id.toString(), this);
+    assert(id != null, "Cannot save ExampleEntity entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type ExampleEntity must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("ExampleEntity", id.toString(), this);
+    }
   }
 
   static load(id: string): ExampleEntity | null {
-    return store.get("ExampleEntity", id) as ExampleEntity | null;
+    return changetype<ExampleEntity | null>(store.get("ExampleEntity", id));
   }
 
   get id(): string {
     let value = this.get("id");
-    return value.toString();
+    return value!.toString();
   }
 
   set id(value: string) {
@@ -44,7 +44,7 @@ export class ExampleEntity extends Entity {
 
   get count(): BigInt {
     let value = this.get("count");
-    return value.toBigInt();
+    return value!.toBigInt();
   }
 
   set count(value: BigInt) {
@@ -53,7 +53,7 @@ export class ExampleEntity extends Entity {
 
   get author(): Bytes {
     let value = this.get("author");
-    return value.toBytes();
+    return value!.toBytes();
   }
 
   set author(value: Bytes) {
@@ -62,7 +62,7 @@ export class ExampleEntity extends Entity {
 
   get message(): string {
     let value = this.get("message");
-    return value.toString();
+    return value!.toString();
   }
 
   set message(value: string) {

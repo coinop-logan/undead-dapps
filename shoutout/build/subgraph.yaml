@@ -1,6 +1,6 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: Shoutout
@@ -16,8 +16,8 @@ dataSources:
         - Shout
       abis:
         - name: Shoutout
-          file: ./abis/Shoutout.json
+          file: Shoutout/abis/Shoutout.json
       eventHandlers:
         - event: Shout(address,string)
           handler: handleShout
-      file: ./src/shoutout.ts
+      file: Shoutout/Shoutout.wasm

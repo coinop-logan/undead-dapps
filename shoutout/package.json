@@ -7,10 +7,12 @@
     "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ shoutout",
     "create-local": "graph create --node http://localhost:8020/ shoutout",
     "remove-local": "graph remove --node http://localhost:8020/ shoutout",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 shoutout"
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 shoutout",
+    "test": "graph test"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.21.1",
-    "@graphprotocol/graph-ts": "0.20.0"
-  }
+    "@graphprotocol/graph-cli": "0.34.0",
+    "@graphprotocol/graph-ts": "0.28.0"
+  },
+  "devDependencies": { "matchstick-as": "0.5.0" }
 }
